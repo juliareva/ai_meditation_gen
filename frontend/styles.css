@@ -1,0 +1,374 @@
+/* General styles */
+body {
+  font-family: "Inter", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto,
+    "Helvetica Neue", Arial, sans-serif;
+  background-color: #0c184c; /* Updated background color for sections between navbar and footer */
+  color: #c3c3c3;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+}
+
+main {
+  flex: 1;
+}
+
+/* Navigation Bar */
+.navbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 20px;
+  background-color: #010e30; /* Updated color for navbar */
+}
+
+.navbar-logo {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.navbar-logo img {
+  height: 50px;
+  border-radius: 50%;
+  margin-right: 10px; /* Space between logo and company name */
+}
+
+.company-name {
+  font-size: 25px; /* Font size for the company name */
+  font-weight: 600;
+  color: #00e1ff; /* Company name color */
+}
+
+.navbar-auth a {
+  color: #c3c3c3;
+  margin-left: 20px;
+  text-decoration: none;
+  font-weight: 300;
+}
+
+.navbar-auth a:hover {
+  color: #00ffff;
+}
+
+/* Hero Section */
+.hero {
+  text-align: center;
+  padding: 60px 20px;
+  background-color: #0c184c; /* Updated background color for section between navbar and footer */
+}
+
+.hero h1 {
+  font-size: 30px;
+  margin-bottom: 10px;
+  font-weight: 500;
+  display: inline-block; /* Make the h1 width match the text */
+  background: linear-gradient(90deg, #a600ff, #00e1ff);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  text-align: center; /* Center the text */
+  white-space: nowrap; /* Prevent the text from wrapping */
+}
+
+.hero p {
+  font-size: 16px;
+  font-weight: 300;
+  color: #c3c3c3;
+  margin-bottom: 20px;
+}
+
+/* Input Section */
+.input-section {
+  padding: 20px 20px 40px;
+  background-color: #0c184c; /* Updated background color for section between navbar and footer */
+  text-align: center;
+}
+
+.input-section textarea {
+  width: 60%;
+  height: 100px;
+  padding: 20px;
+  background-color: #0b173b;
+  border: none;
+  border-radius: 12px;
+  color: #c3c3c3;
+  font-size: 16px;
+  font-weight: 400;
+  resize: none;
+  margin-bottom: 10px;
+}
+
+.input-section textarea::placeholder {
+  color: #d4d4ff;
+}
+
+.input-section p {
+  font-size: 16px;
+  margin-bottom: 30px;
+  font-weight: 400;
+  color: #c3c3c3;
+}
+
+/* Customization Options */
+.customization-options {
+  display: flex;
+  justify-content: space-between;
+  gap: 15px;
+  width: 60%;
+  margin: 0 auto 20px;
+}
+
+.customization-options div {
+  flex: 1;
+  text-align: left;
+}
+
+.customization-options label {
+  display: block;
+  margin-bottom: 5px;
+  font-size: 14px;
+  font-weight: 500;
+  color: #d4d4ff;
+}
+
+.customization-options select {
+  width: 50%;
+  padding: 12px 15px; /* Added padding for the dropdown menu */
+  background-color: #0c184c; /* Updated dark blue background color for dropdown */
+  margin-top: 5px;
+  border: 1px solid rgb(81, 88, 168);
+  border-radius: 12px;
+  color: #c3c3c3;
+  font-size: 16px;
+  font-weight: 400;
+}
+
+.customization-options select {
+  width: 50%;
+  padding: 12px 15px; /* Adjust padding inside the dropdown */
+  background-color: #0c184c; /* Dark blue background color for dropdown */
+  margin-top: 5px;
+  border: 1px solid rgb(81, 88, 168);
+  border-radius: 12px;
+  color: #c3c3c3;
+  font-size: 16px;
+  font-weight: 400;
+  -webkit-appearance: none; /* Remove default arrow for custom styling */
+  -moz-appearance: none;
+  appearance: none;
+  background-image: url('data:image/svg+xml;utf8,<svg aria-hidden="true" focusable="false" data-prefix="fas" data-icon="caret-down" class="svg-inline--fa fa-caret-down fa-w-10" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 320 512"><path fill="%23c3c3c3" d="M31.5 192h256c26.5 0 39.8 32 21.1 51L181.1 334c-11.6 11.7-30.6 11.7-42.2 0L10.4 243c-18.7-19-5.4-51 21.1-51z"></path></svg>'); /* Font Awesome caret down icon */
+  background-position: right 15px center; /* Adjust the arrow position */
+  background-repeat: no-repeat;
+  background-size: 12px; /* Adjust the size of the arrow */
+  padding-right: 30px; /* Extra padding to make space for the arrow */
+}
+
+/* Buttons */
+button.generate-button {
+  width: 15%;
+  padding: 15px;
+  margin-top: 60px;
+  background: linear-gradient(110deg, #a600ff, #00e1ff);
+  border: none;
+  border-radius: 12px;
+  color: #ffffff;
+  font-size: 16px;
+  font-weight: 500;
+  cursor: pointer;
+  margin-bottom: 15px;
+}
+
+button.random-button {
+  width: 15%;
+  padding: 15px;
+  margin-top: 30px;
+  background-color: transparent;
+  border: 2px solid #00e1ff;
+  border-radius: 12px;
+  color: #00e1ff;
+  font-size: 16px;
+  font-weight: 500;
+  cursor: pointer;
+  margin-bottom: 15px;
+  margin-left: 20px;
+}
+
+button.random-button:hover {
+  background-color: #00e1ff;
+  color: #0d1a30;
+}
+
+.end-session-button {
+  width: 15%;
+  padding: 15px;
+  margin-top: 30px;
+  background: linear-gradient(110deg, #a600ff, #00e1ff);
+  border: none;
+  border-radius: 12px;
+  color: #ffffff;
+  font-size: 16px;
+  font-weight: 500;
+  cursor: pointer;
+  margin-bottom: 15px;
+}
+
+/* Audio Player */
+.audio-player {
+  background-color: #0f2a76; /* Dark blue background for the audio player */
+  border-radius: 12px;
+  padding: 20px;
+  margin-bottom: 20px;
+  width: 50%;
+  margin: 0 auto;
+  box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.2); /* Add some shadow for depth */
+}
+
+.audio-player audio {
+  width: 100%;
+  background-color: #0f2a76; /* Ensure entire background of audio element is dark blue */
+  color: #00e1ff;
+  outline: none; /* Remove default outline */
+  border-radius: 12px;
+}
+
+.audio-player audio::-webkit-media-controls-panel {
+  background-color: #0f2a76; /* Dark blue background for audio controls */
+}
+
+.audio-player audio::-webkit-media-controls-play-button,
+.audio-player audio::-webkit-media-controls-mute-button,
+.audio-player audio::-webkit-media-controls-timeline,
+.audio-player audio::-webkit-media-controls-volume-slider-container,
+.audio-player audio::-webkit-media-controls-current-time-display,
+.audio-player audio::-webkit-media-controls-time-remaining-display {
+  filter: brightness(150%); /* Increase brightness for better contrast */
+  color: #00e1ff; /* Neon blue for controls */
+}
+
+.audio-player audio::-webkit-media-controls-volume-slider,
+.audio-player audio::-webkit-media-controls-timeline {
+  accent-color: #00e1ff; /* Set accent color to match the theme */
+}
+
+.audio-player audio::-webkit-media-controls-enclosure {
+  border-radius: 12px; /* Match the border radius with the container */
+}
+
+/* Specific adjustments for other browsers */
+.audio-player audio {
+  background-color: #0f2a76; /* Dark blue background for other browsers */
+  color: #00e1ff; /* Neon blue for controls */
+  border-radius: 12px; /* Rounded corners for the audio element */
+  border: none;
+}
+
+#meditation-audio {
+  background-color: #0f2a76; /* Dark blue background for other browsers */
+}
+
+.audio-player audio::-moz-volume-slider {
+  background-color: #00e1ff; /* Volume slider color for Firefox */
+}
+
+.audio-player audio::-moz-range-thumb {
+  background-color: #00e1ff; /* Volume thumb color for Firefox */
+}
+
+.audio-player audio::-moz-progress-bar {
+  background-color: #00e1ff; /* Progress bar color for Firefox */
+}
+
+/* Responsive Design */
+@media screen and (max-width: 768px) {
+  .audio-player {
+    width: 90%; /* Make the audio player responsive */
+  }
+}
+
+/* Meditation Playback Section */
+.meditation-playback {
+  padding: 40px 20px;
+  background-color: #0c184c; /* Updated background color for section between navbar and footer */
+  text-align: center;
+}
+
+.meditation-playback h1 {
+  font-size: 24px;
+  margin-bottom: 20px;
+  font-weight: 500;
+  background: linear-gradient(90deg, #c300ff, #1ce4ff);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.meditation-playback p {
+  font-size: 16px;
+  margin-bottom: 30px;
+  font-weight: 400;
+  color: #c3c3c3;
+}
+
+.meditation-text {
+  padding-top: 20px;
+  width: 50%;
+  margin: 0 auto;
+}
+
+.meditation-text h2 {
+  font-size: 20px;
+  margin-bottom: 10px;
+  font-weight: 500;
+  color: #00ffff;
+}
+
+.meditation-text p {
+  font-size: 14px;
+  color: #d4d4ff;
+  font-weight: 400;
+  line-height: 1.7;
+  text-align: center;
+}
+
+/* Footer */
+.footer {
+  background-color: #010e30; /* Updated color for footer */
+  padding: 30px 20px;
+  text-align: center;
+  margin-top: auto;
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  opacity: 0.5; /* Apply 80% transparency to the entire footer */
+}
+
+.footer-links,
+.footer p,
+.footer a {
+  margin: 0 10px;
+  font-size: 14px;
+  font-weight: 400;
+  color: #d4d4ff;
+  opacity: 0.8; /* Apply 80% transparency */
+}
+
+.footer-links a {
+  text-decoration: none;
+  margin-right: 10px;
+}
+
+.footer-links a:hover {
+  color: #ffffff;
+  opacity: 1; /* Remove transparency on hover */
+}
+
+.footer a {
+  color: #00ffff;
+  opacity: 0.8; /* Apply 80% transparency */
+}
+
+.footer a:hover {
+  color: #ffffff;
+  opacity: 1; /* Remove transparency on hover */
+}
