@@ -31,7 +31,7 @@
 
     <!-- Input Section -->
     <section class="input-section" id="input-section">
-        <textarea placeholder="Describe what's on your mind or how you're feeling..." aria-label="Input description"></textarea>
+        <textarea id="input-section-textarea" placeholder="Describe what's on your mind or how you're feeling..." aria-label="Input description"></textarea>
         <p>Share a few words about what’s bothering you or how you feel, and we’ll create a meditation tailored just for you.</p>
 
         <!-- Customization Options -->
@@ -51,12 +51,14 @@
                 <option value="ambient">Ambient</option>
                 <option value="classical">Classical</option>
                 <option value="instrumental">Instrumental</option>
+                <option value="calm">Calm</option>
+                <option value="uplifting">Uplifting</option>
             </select></div>
 
             <div class="length-container">
             <label for="length">Meditation Length:</label>
             <select id="length">
-                <option value="5">5 minutes</option>
+                <option value="4">4 minutes</option>
                 <option value="10">10 minutes</option>
                 <option value="15">15 minutes</option>
                 <option value="20">20 minutes</option>
@@ -71,39 +73,19 @@
 
     <!-- Meditation Playback Section -->
     <section class="meditation-playback" id="meditation-playback-section" style="display: none;">
-        <h1>Your Personalized Meditation is Ready!</h1>
-        <p>Based on your input, we've created a calming meditation experience just for you.</p>
+        <h1 id="meditation-ready">We are creating your personal meditation...</h1>
+        <p id="meditation-ready-note">Thank you for your wait!</p>
+        <img id="progress-bar" src="progress.svg" alt="svg" style="margin-bottom: 20px;">
 
         <div class="audio-player">
             <audio id="meditation-audio" controls>
-                <source src="meditation.mp3" type="audio/mpeg">
+                <source src="" type="audio/mpeg">
                 Your browser does not support the audio element.
             </audio>
         </div>
 
         <section class="meditation-text">
-            
-            <p id="meditation-script">Lorem ipsum odor amet, consectetuer adipiscing elit. Torquent dapibus eleifend vestibulum donec hac venenatis. Suspendisse maecenas sit parturient eget mollis mollis porttitor. Placerat tortor primis volutpat vel varius. Maecenas cursus egestas inceptos platea praesent ipsum iaculis. Ut vivamus ante aliquet dictumst tortor sagittis interdum mauris fermentum. Quisque malesuada lectus eu maecenas luctus pharetra amet pretium tincidunt. Eros primis felis nam placerat facilisi etiam platea. Ridiculus tortor justo at lacinia litora amet.
-
-                Amet euismod nullam imperdiet lacinia magna, praesent velit. Erat sagittis penatibus pellentesque cubilia lobortis ut a potenti malesuada. Dignissim class leo sed netus turpis id ex. Urna egestas blandit risus libero ex. Consectetur vehicula sagittis congue neque urna curae accumsan. Montes ad netus torquent pharetra conubia, ridiculus pretium orci. Congue dolor inceptos montes elit quam etiam. Cursus integer sociosqu nulla pretium; senectus nec enim. Elit ridiculus luctus turpis natoque pharetra consequat lacus nunc.
-                
-                Est non dis platea himenaeos sapien imperdiet. Placerat ut ornare natoque ultricies condimentum suspendisse? Leo felis tempus magnis, tellus diam porta. Tristique cras id magnis quis; ullamcorper primis luctus placerat. Nascetur venenatis at nostra diam venenatis nascetur interdum. Purus convallis iaculis laoreet sollicitudin taciti habitasse. Dictum non sapien eros sodales auctor magna. Malesuada hac morbi dictum eu; suspendisse condimentum varius. Sollicitudin aptent habitasse vivamus semper libero; potenti vulputate adipiscing.
-                
-                Quam vehicula finibus tincidunt sodales tempor netus consequat etiam. Adipiscing luctus cursus sit ante enim magna fermentum malesuada augue. Tortor eleifend vehicula hendrerit nostra tempus interdum. Ullamcorper hendrerit interdum nisi enim et dapibus. Nullam ipsum parturient ante donec congue fusce pharetra. In suscipit at imperdiet accumsan leo enim sit. Venenatis nibh venenatis cras fusce curabitur class. Lectus varius conubia eget accumsan dapibus mauris senectus. Pulvinar himenaeos eu neque arcu consequat class elementum.
-                
-                Mi pellentesque morbi interdum euismod tempus. Suscipit laoreet tincidunt id fames amet orci parturient. Proin dignissim ipsum natoque curabitur rhoncus dapibus vehicula. Vehicula diam viverra sociosqu lobortis in tempus integer. Conubia et magnis nascetur tincidunt malesuada penatibus sociosqu. Ante purus dolor sed donec neque molestie fames ut purus. Consequat ullamcorper senectus quisque lacinia duis elementum. Est duis quam ipsum potenti suscipit sodales.
-                
-                Aliquet tellus arcu eros varius himenaeos montes bibendum. Afermentum hac nullam; at ipsum nascetur. Sodales praesent potenti ultrices dui vulputate dolor suspendisse tristique. Montes semper orci eros viverra mollis faucibus dapibus. Sapien dui consectetur diam cubilia ut velit. Conubia turpis varius orci sodales massa fames donec felis enim. Porttitor imperdiet libero mus cubilia viverra congue augue. Tempus eget dolor commodo odio; nascetur interdum metus volutpat. Habitasse nostra blandit conubia aliquam suspendisse convallis nam. Orci dis nostra commodo magnis pretium litora id.
-                
-                Blandit sed quisque tristique tempor laoreet dignissim. At aenean finibus molestie vulputate feugiat non pretium ultrices suscipit. Pretium turpis sapien phasellus inceptos fusce pulvinar imperdiet? Cras felis amet facilisi velit accumsan etiam aliquet morbi tortor. Lectus fusce fames iaculis ullamcorper; placerat vehicula. Eros aliquam in ex euismod, vehicula sem finibus. Leo platea cursus platea ornare interdum iaculis magna. Massa felis nullam torquent habitant lacinia efficitur. Integer tristique fringilla posuere pharetra sociosqu eget vehicula.
-                
-                Ante aenean a fermentum nisl scelerisque metus mollis nostra. Sem ullamcorper fermentum quis orci molestie, quam leo vitae. Ante neque per ante erat morbi cursus. Metus conubia non rhoncus feugiat parturient placerat. Duis varius sodales in consectetur ullamcorper faucibus est quisque. Ligula duis nullam odio accumsan ligula litora lobortis adipiscing. Fames volutpat iaculis suscipit per tellus torquent. Tincidunt tempor fringilla fermentum pulvinar; commodo lacinia integer. Urna elementum nisl efficitur porta consequat tortor.
-                
-                Suscipit rutrum sit eget consequat litora sapien habitasse proin porta. Commodo vestibulum rhoncus ex varius ultricies luctus. Dapibus magnis dis mus sapien interdum aliquam sem semper sem. Dis senectus magnis, ultrices at in scelerisque per. Augue arcu ad cubilia venenatis; porta mauris pretium. Ac class cursus elit placerat montes conubia efficitur. Rutrum condimentum consectetur phasellus vestibulum tempor imperdiet posuere.
-                
-                Consectetur fringilla pulvinar egestas magna etiam. Lacinia tempus platea turpis dictum magnis aptent ultricies. Vitae suspendisse magnis diam luctus ornare dolor potenti montes litora. Orci aenean odio per malesuada praesent viverra. Augue aliquam eros interdum vivamus commodo odio. Sem iaculis curae mus fringilla blandit eros non. Morbi hendrerit nullam taciti posuere odio vitae. Maecenas sollicitudin torquent nisl ipsum ad porttitor morbi himenaeos sapien. Magnis aliquet curae id turpis lectus eros sodales mollis fames. Integer parturient nascetur pretium, donec vivamus hendrerit volutpat fringilla phasellus.
-                
-                </p>
+                <p id="meditation-script"></p>
         </section>
 
         <button class="end-session-button" id="end-session">End Session</button>
@@ -125,35 +107,76 @@
 
     <!-- JavaScript -->
     <script>
-       document.addEventListener('DOMContentLoaded', () => {
-    const generateMeditationButton = document.getElementById('generate-meditation');
-    const generateRandomMeditationButton = document.getElementById('generate-random-meditation');
-    const meditationPlaybackSection = document.getElementById('meditation-playback-section');
-    const homeSection = document.getElementById('home-section');
-    const inputSection = document.getElementById('input-section');
-    const endSessionButton = document.getElementById('end-session');
-    const audio = document.getElementById('meditation-audio');
+        document.addEventListener('DOMContentLoaded', () => {
+            const generateMeditationButton = document.getElementById('generate-meditation');
+            const generateRandomMeditationButton = document.getElementById('generate-random-meditation');
+            const meditationPlaybackSection = document.getElementById('meditation-playback-section');
+            const homeSection = document.getElementById('home-section');
+            const inputSection = document.getElementById('input-section');
+            const endSessionButton = document.getElementById('end-session');
+            const audio = document.getElementById('meditation-audio');
 
-    generateMeditationButton.addEventListener('click', () => {
-        homeSection.style.display = 'none';
-        inputSection.style.display = 'none';
-        meditationPlaybackSection.style.display = 'block';
-    });
+            generateMeditationButton.addEventListener('click', () => {
+                homeSection.style.display = 'none';
+                inputSection.style.display = 'none';
+                meditationPlaybackSection.style.display = 'block';
+            });
 
-    generateRandomMeditationButton.addEventListener('click', () => {
-        homeSection.style.display = 'none';
-        inputSection.style.display = 'none';
-        meditationPlaybackSection.style.display = 'block';
-    });
+            generateRandomMeditationButton.addEventListener('click', () => {
+                homeSection.style.display = 'none';
+                inputSection.style.display = 'none';
+                meditationPlaybackSection.style.display = 'block';
+            });
 
-    endSessionButton.addEventListener('click', () => {
-        audio.pause();
-        audio.currentTime = 0; // Reset audio to the beginning
-        homeSection.style.display = 'block';
-        inputSection.style.display = 'block';
-        meditationPlaybackSection.style.display = 'none';
-    });
-});
+            endSessionButton.addEventListener('click', () => {
+                audio.pause();
+                audio.currentTime = 0; // Reset audio to the beginning
+                homeSection.style.display = 'block';
+                inputSection.style.display = 'block';
+                meditationPlaybackSection.style.display = 'none';
+            });
+
+            function loadAudio() {
+                const audioPlayer = document.getElementById('meditation-audio');
+                const voice = document.getElementById('voice');
+                const music = document.getElementById('music');
+
+                const userTopic = document.getElementById('input-section-textarea');
+                const audioUrl = 'http://127.0.0.1:5000/sound?';  // Endpoint for dynamic audio generation
+                fetch(audioUrl + new URLSearchParams({
+                    voice: voice.value,
+                    topic: userTopic.value,
+                    music: music.value,
+                }).toString())
+                    .then(response => {
+                        if (!response.ok) {
+                            console.log(`Response status: ${response.status}`);
+                        }
+                        return response.blob()
+                    })
+                    .then(blob => {
+                        const url = URL.createObjectURL(blob);
+                        audioPlayer.src = url;
+                    })
+                    .then(() => {
+                        fetch('http://127.0.0.1:5000/text')
+                            .then(response_meditation_text => response_meditation_text.text())
+                            .then(text => {
+                                document.getElementById('meditation-script').innerText = text;
+                                document.getElementById('meditation-ready').innerText = "Your Personalized Meditation is Ready!";
+                                document.getElementById('meditation-ready-note').innerText = "Based on your input, we've created a calming meditation experience just for you.";
+                                document.getElementById('progress-bar').style.display = "none";
+
+                            })
+                            .catch(error => console.error('Error loading text:', error));
+                    })
+                    .catch(error => console.error('Error loading audio:', error));
+            }
+            const btn = document.getElementById('generate-meditation');
+            const btnRandom = document.getElementById('generate-random-meditation');
+            btn.onclick = loadAudio;
+            btnRandom.onclick = loadAudio;
+        });
 
     </script>
 </body>
