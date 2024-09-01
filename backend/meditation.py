@@ -89,9 +89,9 @@ def provide_audio():
 
     
     if voice_type == "female":
-        use_voice = "female_voice.wav"
+        use_voice = "voices/female_voice.wav"
     else:
-        use_voice = "male_voice.wav"
+        use_voice = "voices/male_voice.wav"
 
     tts = TTS("tts_models/multilingual/multi-dataset/xtts_v2").to("cpu")
 
@@ -111,7 +111,7 @@ def provide_audio():
         song = "melodic"
 
     sound_1 = AudioSegment.from_file("output.wav", format="wav")
-    sound_2 = AudioSegment.from_file("music_meditation/" + song + ".mp3", format="mp3")
+    sound_2 = AudioSegment.from_file("music/" + song + ".mp3", format="mp3")
     sound_2_tuned = sound_2 - 5  # 5db less
 
     combined = sound_2_tuned.overlay(sound_1)
