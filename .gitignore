@@ -1,0 +1,14 @@
+.DS_Store
+backend/voices/male_voice.wav
+backend/voices/female_voice.wav
+backend/output.wav
+backend/music/ambient.mp3
+backend/music/calm.mp3
+backend/music/classical.mp3
+backend/music/instrumental.mp3
+backend/music/melodic.mp3
+backend/music/nature.mp3
+backend/music/uplifting.mp3
+backend/__pycache__
+backend/projvenv
+backend/res.wav
