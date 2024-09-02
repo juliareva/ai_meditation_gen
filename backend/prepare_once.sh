@@ -10,5 +10,3 @@ source projvenv/bin/activate
 # Install required packages
 pip install -r requirements.txt
 
-# Deactivate virtual environment
-deactivate

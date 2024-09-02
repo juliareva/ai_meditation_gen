@@ -9,7 +9,6 @@ music/melodic.mp3
 music/nature.mp3
 music/uplifting.mp3
 __pycache__
-projenv
+projvenv
 res.wav
-projenv
-
+.DS_Store

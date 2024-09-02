@@ -1,27 +1,29 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Auric - Find Your Calm</title>
     <link rel="stylesheet" href="styles.css">
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;700&display=swap" rel="stylesheet">
-        <!-- Other head elements -->
-        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <!-- Other head elements -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
 </head>
+
 <body>
 
     <!-- Navigation Bar -->
     <nav class="navbar">
         <div class="navbar-logo">
-          <img src="logo1.png" alt="Auric Logo" class="logo">
-          <span class="company-name">AURIC</span> <!-- Added company name -->
+            <img src="logo1.png" alt="Auric Logo" class="logo">
+            <span class="company-name">AURIC</span>
         </div>
         <div class="navbar-auth">
-          <a href="#">Sign In</a>
-          <a href="#">Sign Up</a>
+            <a href="#">Sign In</a>
+            <a href="#">Sign Up</a>
         </div>
-      </nav>
+    </nav>
 
     <!-- Hero Section -->
     <section class="hero" id="home-section">
@@ -31,39 +33,42 @@
 
     <!-- Input Section -->
     <section class="input-section" id="input-section">
-        <textarea id="input-section-textarea" placeholder="Describe what's on your mind or how you're feeling..." aria-label="Input description"></textarea>
-        <p>Share a few words about what’s bothering you or how you feel, and we’ll create a meditation tailored just for you.</p>
+        <textarea id="input-section-textarea" placeholder="Describe what's on your mind or how you're feeling..."
+            aria-label="Input description"></textarea>
+        <p>Share a few words about what’s bothering you or how you feel, and we’ll create a meditation tailored just for
+            you.</p>
 
         <!-- Customization Options -->
         <div class="customization-options">
             <div class="voice-container">
-            <label for="voice">Voice Options:</label>
-            <select id="voice">
-                <option value="male">Male</option>
-                <option value="female">Female</option>
-            </select></div>
+                <label for="voice">Voice Options:</label>
+                <select id="voice">
+                    <option value="male">Male</option>
+                    <option value="female">Female</option>
+                </select>
+            </div>
 
             <div class="music-container">
-            <label for="music">Background Music Type:</label>
-            <select id="music">
-                <option value="melodic">Melodic</option>
-                <option value="nature">Nature</option>
-                <option value="ambient">Ambient</option>
-                <option value="classical">Classical</option>
-                <option value="instrumental">Instrumental</option>
-                <option value="calm">Calm</option>
-                <option value="uplifting">Uplifting</option>
-            </select></div>
+                <label for="music">Background Music Type:</label>
+                <select id="music">
+                    <option value="melodic">Melodic</option>
+                    <option value="nature">Nature</option>
+                    <option value="ambient">Ambient</option>
+                    <option value="classical">Classical</option>
+                    <option value="instrumental">Instrumental</option>
+                    <option value="calm">Calm</option>
+                    <option value="uplifting">Uplifting</option>
+                </select>
+            </div>
 
             <div class="length-container">
-            <label for="length">Meditation Length:</label>
-            <select id="length">
-                <option value="4">4 minutes</option>
-                <option value="10">10 minutes</option>
-                <option value="15">15 minutes</option>
-                <option value="20">20 minutes</option>
-                <option value="30">30 minutes</option>
-            </select></div>
+                <label for="length">Meditation Length:</label>
+                <select id="length">
+                    <option value="4">Up to 5 minutes</option>
+                    <option value="10">Up to 10 minutes</option>
+                    <option value="15">Up 15 minutes</option>
+                </select>
+            </div>
         </div>
 
         <!-- Generate Buttons -->
@@ -85,7 +90,7 @@
         </div>
 
         <section class="meditation-text">
-                <p id="meditation-script"></p>
+            <p id="meditation-script"></p>
         </section>
 
         <button class="end-session-button" id="end-session">End Session</button>
@@ -102,11 +107,15 @@
             <a href="#">Terms of Service</a>
         </div>
         <p>© 2024 Auric. All rights reserved.</p>
-        <p>Contact us: <a href="mailto:info@auric.com">info@auric.com</a></p>
+        <p>Contact us: <a href="https://www.linkedin.com/in/juliareva/">LinkedIn</a> | <a
+                href="https://github.com/juliareva">GitHub</a> </p>
+
     </footer>
 
     <!-- JavaScript -->
     <script>
+        let controller;
+
         document.addEventListener('DOMContentLoaded', () => {
             const generateMeditationButton = document.getElementById('generate-meditation');
             const generateRandomMeditationButton = document.getElementById('generate-random-meditation');
@@ -114,70 +123,128 @@
             const homeSection = document.getElementById('home-section');
             const inputSection = document.getElementById('input-section');
             const endSessionButton = document.getElementById('end-session');
-            const audio = document.getElementById('meditation-audio');
+            const audioPlayer = document.getElementById('meditation-audio');
+            const voice = document.getElementById('voice');
+            const music = document.getElementById('music');
+            const meditationScript = document.getElementById('meditation-script');
+            const meditationReady = document.getElementById('meditation-ready');
+            const meditationReadyNote = document.getElementById('meditation-ready-note');
+            const progressBar = document.getElementById('progress-bar');
+            const userTopic = document.getElementById('input-section-textarea');
 
             generateMeditationButton.addEventListener('click', () => {
                 homeSection.style.display = 'none';
                 inputSection.style.display = 'none';
                 meditationPlaybackSection.style.display = 'block';
+                loadAudio();
             });
 
             generateRandomMeditationButton.addEventListener('click', () => {
                 homeSection.style.display = 'none';
                 inputSection.style.display = 'none';
                 meditationPlaybackSection.style.display = 'block';
+                loadAudio();
             });
 
             endSessionButton.addEventListener('click', () => {
-                audio.pause();
-                audio.currentTime = 0; // Reset audio to the beginning
+                audioPlayer.pause();
+                audioPlayer.currentTime = 0;
                 homeSection.style.display = 'block';
                 inputSection.style.display = 'block';
                 meditationPlaybackSection.style.display = 'none';
+                resetMeditationUi();
             });
 
-            function loadAudio() {
-                const audioPlayer = document.getElementById('meditation-audio');
-                const voice = document.getElementById('voice');
-                const music = document.getElementById('music');
+            const updateUiMeditationReady = () => {
+                meditationReady.innerText = "Your Personalized Meditation is Ready!";
+                meditationReadyNote.innerText = "Based on your input, we've created a calming meditation experience just for you.";
+                progressBar.style.display = "none";
+            };
 
-                const userTopic = document.getElementById('input-section-textarea');
-                const audioUrl = 'http://127.0.0.1:5000/sound?';  // Endpoint for dynamic audio generation
-                fetch(audioUrl + new URLSearchParams({
-                    voice: voice.value,
-                    topic: userTopic.value,
-                    music: music.value,
-                }).toString())
-                    .then(response => {
-                        if (!response.ok) {
-                            console.log(`Response status: ${response.status}`);
+            const resetMeditationUi = () => {
+                meditationReady.innerText = "We are creating your personal meditation...";
+                meditationReadyNote.innerText = "Thank you for your wait!";
+                progressBar.style.display = "visible";
+                audioPlayer.src = '';
+                audioPlayer.load();
+            };
+
+            const handle429Error = () => {
+                meditationReady.innerText = "To many requests...";
+                meditationReadyNote.innerText = "Please try again later.";
+                progressBar.style.display = "none";
+                audioPlayer.src = '';
+                audioPlayer.load();
+            };
+
+            const hashValue = val =>
+                crypto.subtle
+                    .digest('SHA-256', new TextEncoder('utf-8').encode(val))
+                    .then(h => {
+                        let hexes = [],
+                            view = new DataView(h);
+                        for (let i = 0; i < view.byteLength; i += 4)
+                            hexes.push(('00000000' + view.getUint32(i).toString(16)).slice(-8));
+                        return hexes.join('');
+                    });
+
+            const loadAudio = async () => {
+                controller = new AbortController();
+                const signal = controller.signal;
+
+                const audioUrl = 'http://127.0.0.1:5000/sound?';
+
+                try {
+                    // Sound
+                    const response = await fetch(audioUrl + new URLSearchParams({
+                        voice: voice.value,
+                        topic: userTopic.value,
+                        music: music.value,
+                    }).toString(), { signal });
+
+                    if (!response.ok) {
+                        if (response.status === 429) {
+                            throw new Error('429');
+                        } else {
+                            throw new Error('Network response was not ok');
                         }
-                        return response.blob()
-                    })
-                    .then(blob => {
-                        const url = URL.createObjectURL(blob);
-                        audioPlayer.src = url;
-                    })
-                    .then(() => {
-                        fetch('http://127.0.0.1:5000/text')
-                            .then(response_meditation_text => response_meditation_text.text())
-                            .then(text => {
-                                document.getElementById('meditation-script').innerText = text;
-                                document.getElementById('meditation-ready').innerText = "Your Personalized Meditation is Ready!";
-                                document.getElementById('meditation-ready-note').innerText = "Based on your input, we've created a calming meditation experience just for you.";
-                                document.getElementById('progress-bar').style.display = "none";
+                    }
 
-                            })
-                            .catch(error => console.error('Error loading text:', error));
-                    })
-                    .catch(error => console.error('Error loading audio:', error));
+                    const audioBlob = await response.blob();
+                    const url = URL.createObjectURL(audioBlob);
+                    audioPlayer.src = url;
+
+                    const blobHash = await hashValue(audioBlob);
+                    console.log(blobHash)
+
+                    // Text
+                    const response_text = await fetch('http://127.0.0.1:5000/text', { signal })
+
+                    if (!response_text.ok) {
+                        if (response_text.status === 429) {
+                            throw new Error('429');
+                        } else {
+                            throw new Error('Network response was not ok');
+                        }
+                    }
+
+                    const meditationText = await response_text.text();
+                    meditationScript.innerText = meditationText;
+
+                    updateUiMeditationReady();
+                } catch (error) {
+                    if (error.name === 'AbortError') {
+                        console.log('Fetch aborted');
+                    } else if (error.message === '429') {
+                        handle429Error();
+                    } else {
+                        console.error('Fetch error:', error);
+                    }
+                }
             }
-            const btn = document.getElementById('generate-meditation');
-            const btnRandom = document.getElementById('generate-random-meditation');
-            btn.onclick = loadAudio;
-            btnRandom.onclick = loadAudio;
         });
 
     </script>
 </body>
+
 </html>
